@@ -4,6 +4,12 @@ A complete AI agent application that intelligently analyzes text, images, and we
 
 ![AI Content Analyzer](https://img.shields.io/badge/AI-Agent-blue) ![Python](https://img.shields.io/badge/Python-3.8+-green) ![Flask](https://img.shields.io/badge/Flask-3.0-red) ![LangChain](https://img.shields.io/badge/LangChain-0.1-yellow)
 
+## 📸 Screenshot
+
+![AI Content Analyzer Interface](screenshot.png)
+
+*Modern, professional UI with typing indicators, message timestamps, quick actions, and session statistics*
+
 ## ✨ Features
 
 ### 🎯 Core Capabilities
@@ -15,11 +21,19 @@ A complete AI agent application that intelligently analyzes text, images, and we
 
 ### 🎨 User Interface
 - Modern dark theme with glassmorphism effects
-- Smooth animations and transitions
-- Real-time chat interface
+- **Typing Indicator**: Animated dots show when agent is processing
+- **Message Timestamps**: Track when each message was sent
+- **Copy to Clipboard**: One-click copy for agent responses
+- **Example Prompts**: Quick-start suggestions for new users
+- **Quick Actions**: Pre-filled templates for common tasks
+- **Session Statistics**: Real-time message and analysis counters
+- **Export Chat**: Download conversations as text files
+- **Auto-resizing Input**: Smart textarea that grows as you type
+- **Status Indicator**: Live connection status with animated pulse
 - File upload with drag-and-drop support
 - URL input for web content analysis
-- Responsive design for all devices
+- Fully responsive design for all devices
+- Smooth animations and micro-interactions
 
 ### 🧠 AI Agent Features
 - Powered by LangChain framework
