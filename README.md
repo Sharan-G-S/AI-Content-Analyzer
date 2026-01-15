@@ -1,5 +1,5 @@
 # 🤖 AI Content Analyzer
-
+**Sharan G S**
 A complete AI agent application that intelligently analyzes text, images, and web content using LangChain and OpenAI GPT-4. Features a beautiful, modern web interface with real-time chat interaction.
 
 ![AI Content Analyzer](https://img.shields.io/badge/AI-Agent-blue) ![Python](https://img.shields.io/badge/Python-3.8+-green) ![Flask](https://img.shields.io/badge/Flask-3.0-red) ![LangChain](https://img.shields.io/badge/LangChain-0.1-yellow)
