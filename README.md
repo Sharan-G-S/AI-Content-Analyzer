@@ -318,4 +318,4 @@ For issues, questions, or suggestions, please create an issue in the repository.
 
 ---
 
-**Built with ❤️ using LangChain, OpenAI, and modern web technologies**
+**Built with 💚 from Sharan G S**
