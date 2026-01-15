@@ -1,32 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Content Analyzer - Intelligent Analysis Agent</title>
-    <meta name="description" content="AI-powered content analyzer that can analyze text, images, and web content using advanced AI agents">
+    <meta name="description"
+        content="AI-powered content analyzer that can analyze text, images, and web content using advanced AI agents">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/css/styles.css">
 </head>
+
 <body>
     <div class="container">
         <!-- Header -->
         <header class="header">
-            <h1>🤖 AI Content Analyzer</h1>
-            <p>Intelligent analysis of text, images, and web content powered by advanced AI agents</p>
+            <div class="header-content">
+                <div>
+                    <h1>🤖 AI Content Analyzer</h1>
+                    <p>Intelligent analysis of text, images, and web content powered by advanced AI agents</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn-icon" id="themeToggle" title="Toggle theme">
+                        <span id="themeIcon">🌙</span>
+                    </button>
+                    <div class="status-indicator" id="statusIndicator">
+                        <span class="status-dot"></span>
+                        <span class="status-text">Connected</span>
+                    </div>
+                </div>
+            </div>
         </header>
 
         <!-- Main Content -->
         <div class="main-content">
             <!-- Chat Container -->
             <div class="chat-container">
+                <!-- Chat Header -->
+                <div class="chat-header">
+                    <div class="chat-title">
+                        <span class="chat-icon">💬</span>
+                        <span>Conversation</span>
+                    </div>
+                    <div class="chat-actions">
+                        <button class="btn-icon-small" id="clearChat" title="Clear messages">
+                            <span>🗑️</span>
+                        </button>
+                        <button class="btn-icon-small" id="exportChat" title="Export conversation">
+                            <span>📥</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Messages Area -->
                 <div class="messages" id="messages">
                     <div class="message agent">
                         <div class="message-header">
                             <div class="message-icon">🤖</div>
                             <span class="message-role">AI Agent</span>
+                            <span class="message-time">Just now</span>
                         </div>
                         <div class="message-content">
                             <p>Hello! I'm your AI Content Analyzer assistant. I can help you analyze:</p>
@@ -38,22 +72,48 @@
                             </ul>
                             <p style="margin-top: 0.5rem;">What would you like me to analyze today?</p>
                         </div>
+                        <button class="copy-btn" onclick="copyMessage(this)">📋 Copy</button>
+                    </div>
+                </div>
+
+                <!-- Typing Indicator -->
+                <div class="typing-indicator" id="typingIndicator" style="display: none;">
+                    <div class="message-icon">🤖</div>
+                    <div class="typing-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </div>
                 </div>
 
                 <!-- Input Area -->
                 <div class="input-area">
                     <div class="input-wrapper">
-                        <input 
-                            type="text" 
-                            id="messageInput" 
-                            placeholder="Ask me to analyze something..."
-                            autocomplete="off"
-                        >
+                        <textarea id="messageInput" placeholder="Ask me to analyze something..." rows="1"
+                            autocomplete="off"></textarea>
+                        <div class="input-actions">
+                            <button class="btn-icon-small" id="attachFile" title="Attach file">
+                                <span>📎</span>
+                            </button>
+                        </div>
                     </div>
-                    <button id="sendButton">
+                    <button id="sendButton" class="btn-send">
                         <span id="sendButtonText">Send</span>
+                        <span id="sendIcon">➤</span>
                     </button>
+                </div>
+
+                <!-- Example Prompts -->
+                <div class="example-prompts" id="examplePrompts">
+                    <div class="prompt-chip" onclick="usePrompt(this)">
+                        Analyze sentiment: "This is amazing!"
+                    </div>
+                    <div class="prompt-chip" onclick="usePrompt(this)">
+                        Calculate: 25 * 4 + 10
+                    </div>
+                    <div class="prompt-chip" onclick="usePrompt(this)">
+                        Analyze https://example.com
+                    </div>
                 </div>
             </div>
 
@@ -78,15 +138,33 @@
                 <!-- URL Input Card -->
                 <div class="card">
                     <h3>🌐 Analyze URL</h3>
-                    <input 
-                        type="url" 
-                        id="urlInput" 
-                        placeholder="https://example.com"
-                        autocomplete="off"
-                    >
+                    <input type="url" id="urlInput" placeholder="https://example.com" autocomplete="off">
                     <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem;">
                         Enter a URL to analyze its content
                     </p>
+                </div>
+
+                <!-- Quick Actions Card -->
+                <div class="card">
+                    <h3>⚡ Quick Actions</h3>
+                    <div class="quick-actions">
+                        <button class="quick-action-btn" onclick="quickAction('sentiment')">
+                            <span>😊</span>
+                            <span>Sentiment</span>
+                        </button>
+                        <button class="quick-action-btn" onclick="quickAction('keywords')">
+                            <span>🔑</span>
+                            <span>Keywords</span>
+                        </button>
+                        <button class="quick-action-btn" onclick="quickAction('summary')">
+                            <span>📄</span>
+                            <span>Summary</span>
+                        </button>
+                        <button class="quick-action-btn" onclick="quickAction('calculate')">
+                            <span>🔢</span>
+                            <span>Calculate</span>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Features Card -->
@@ -101,6 +179,21 @@
                     </ul>
                 </div>
 
+                <!-- Stats Card -->
+                <div class="card stats-card">
+                    <h3>📊 Session Stats</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-value" id="messageCount">0</div>
+                            <div class="stat-label">Messages</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="analysisCount">0</div>
+                            <div class="stat-label">Analyses</div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Reset Button -->
                 <button class="btn-reset" id="resetButton">🔄 Reset Conversation</button>
             </aside>
@@ -109,4 +202,5 @@
 
     <script src="/static/js/app.js"></script>
 </body>
+
 </html>
