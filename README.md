@@ -314,7 +314,7 @@ Contributions are welcome! Feel free to:
 
 ## 📧 Support
 
-For issues, questions, or suggestions, please create an issue in the repository.
+For issues, questions, or suggestions, please create an issue in the repository or mail to sharangs08@gmail.com
 
 ---
 
