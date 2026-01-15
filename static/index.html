@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Content Analyzer - Intelligent Analysis Agent</title>
+    <meta name="description" content="AI-powered content analyzer that can analyze text, images, and web content using advanced AI agents">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🤖 AI Content Analyzer</h1>
+            <p>Intelligent analysis of text, images, and web content powered by advanced AI agents</p>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Chat Container -->
+            <div class="chat-container">
+                <div class="messages" id="messages">
+                    <div class="message agent">
+                        <div class="message-header">
+                            <div class="message-icon">🤖</div>
+                            <span class="message-role">AI Agent</span>
+                        </div>
+                        <div class="message-content">
+                            <p>Hello! I'm your AI Content Analyzer assistant. I can help you analyze:</p>
+                            <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+                                <li>📝 Text for sentiment, keywords, and statistics</li>
+                                <li>🖼️ Images for properties, colors, and descriptions</li>
+                                <li>🌐 Web pages for content and metadata</li>
+                                <li>🔢 Mathematical calculations</li>
+                            </ul>
+                            <p style="margin-top: 0.5rem;">What would you like me to analyze today?</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Input Area -->
+                <div class="input-area">
+                    <div class="input-wrapper">
+                        <input 
+                            type="text" 
+                            id="messageInput" 
+                            placeholder="Ask me to analyze something..."
+                            autocomplete="off"
+                        >
+                    </div>
+                    <button id="sendButton">
+                        <span id="sendButtonText">Send</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <!-- File Upload Card -->
+                <div class="card">
+                    <h3>📁 Upload Image</h3>
+                    <div class="file-upload">
+                        <input type="file" id="fileInput" accept="image/*">
+                        <label for="fileInput" class="file-upload-label">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">📤</div>
+                            <div>Click to upload an image</div>
+                            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">
+                                PNG, JPG, GIF up to 16MB
+                            </div>
+                        </label>
+                        <div class="file-name" id="fileName"></div>
+                    </div>
+                </div>
+
+                <!-- URL Input Card -->
+                <div class="card">
+                    <h3>🌐 Analyze URL</h3>
+                    <input 
+                        type="url" 
+                        id="urlInput" 
+                        placeholder="https://example.com"
+                        autocomplete="off"
+                    >
+                    <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem;">
+                        Enter a URL to analyze its content
+                    </p>
+                </div>
+
+                <!-- Features Card -->
+                <div class="card">
+                    <h3>✨ Features</h3>
+                    <ul class="features">
+                        <li>Sentiment Analysis</li>
+                        <li>Keyword Extraction</li>
+                        <li>Image Recognition</li>
+                        <li>Web Scraping</li>
+                        <li>Multi-step Reasoning</li>
+                    </ul>
+                </div>
+
+                <!-- Reset Button -->
+                <button class="btn-reset" id="resetButton">🔄 Reset Conversation</button>
+            </aside>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
